@@ -1,4 +1,4 @@
-scaffold a new service
+name: Scaffold a new service
 on:
   workflow_dispatch:
     inputs:
@@ -19,7 +19,7 @@ on:
 jobs:
   scaffold-service:
     env:
-      ORG_NAME: Priyaraghu12
+      ORG_NAME: <YOUR-ORG-NAME>
     runs-on: ubuntu-latest
     steps:
       - uses: port-labs/cookiecutter-gha@v1.1.1
@@ -32,7 +32,5 @@ jobs:
           repositoryName: ${{ inputs.service_name }}
           portUserInputs: '{"cookiecutter_app_name": "${{ inputs.service_name }}" }'
           cookiecutterTemplate: https://github.com/lacion/cookiecutter-golang
-          blueprintIdentifier: "service"
-          organizationName: ${{ env.ORG_NAME }}
           blueprintIdentifier: "service"
           organizationName: ${{ env.ORG_NAME }}
