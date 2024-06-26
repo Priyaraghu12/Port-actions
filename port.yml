@@ -6,4 +6,4 @@
     type: "backend"
     lifecycle: "Production"
   relations:
-    domain: "Payment"
+    domain: "payment"
