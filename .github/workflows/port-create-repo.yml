@@ -22,15 +22,6 @@ jobs:
       ORG_NAME: "Priyaraghu12"
     runs-on: ubuntu-latest
     steps:
-      - uses: port-labs/cookiecutter-gha@v1.1.1
-        id: scaff
-        with:
-          portClientId: ${{ secrets.PORT_CLIENT_ID }}
-          portClientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
-          token: ${{ secrets.ORG_ADMIN_TOKEN }}
-          portRunId: ${{ fromJson(inputs.port_context).runId }}
-          repositoryName: ${{ inputs.service_name }}
-          portUserInputs: '{"cookiecutter_app_name": "${{ inputs.service_name }}" }'
-          cookiecutterTemplate: https://github.com/lacion/cookiecutter-golang
-          blueprintIdentifier: "service"
-          organizationName: ${{ env.ORG_NAME }}
+      - name: Log the specified branch
+        run: |
+          echo "The workflow was triggered on branch: ${{ github.event.inputs.ref }}"
