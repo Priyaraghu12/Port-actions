@@ -1,0 +1,27 @@
+name: service
+on:
+  workflow_dispatch:
+    inputs:
+      port_context:
+        required: true
+        description: Includes the action's run id
+      service_name:
+        required: true
+        description: The name of the new service
+        type: string
+      secrets:
+      ORG_ADMIN_TOKEN:
+        required: true
+      PORT_CLIENT_ID:
+        required: true
+      PORT_CLIENT_SECRET:
+        required: true
+jobs:
+  scaffold-service:
+    env:
+      ORG_NAME: "Priyaraghu12"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log the specified branch
+        run: |
+          echo "The workflow was triggered on branch: ${{ github.event.inputs.ref }}"
